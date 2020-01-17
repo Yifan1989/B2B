@@ -14,21 +14,22 @@ export class HomeComponent {
         passWord: new FormControl(''),
     });
 
-    constructor() { }
+    constructor(private userService: UserService) { }
 
     ngOninit(): void {}
 
 
 
     private confirmLogin(): void {
-        let userEmail = this.loginForm.value.userEmail;
-        let passWord = this.loginForm.value.passWord;
+        let email = this.loginForm.value.userEmail;
+        let passWd = this.loginForm.value.passWord;
 
-        let auth_user: User = {
-            email: userEmail,
-            password: passWord
+        let authUser: User = {
+            email: email,
+            password: passWd
         }
         //console.log(123);
+        this.userService.authUser(authUser);
     }
 
 }
