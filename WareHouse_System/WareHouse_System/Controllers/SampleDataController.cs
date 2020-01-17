@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Warehouse_B2B.Controllers
+namespace WareHouse_System.Controllers
 {
     [Route("api/[controller]")]
     public class SampleDataController : Controller

@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "Warehouse_B2B": {
+    "WareHouse_System": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -52,18 +52,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "Warehouse_B2B:build"
+            "browserTarget": "WareHouse_System:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "Warehouse_B2B:build:production"
+              "browserTarget": "WareHouse_System:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "Warehouse_B2B:build"
+            "browserTarget": "WareHouse_System:build"
           }
         },
         "test": {
@@ -122,7 +122,7 @@
         }
       }
     },
-    "Warehouse_B2B-e2e": {
+    "WareHouse_System-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "architect": {
@@ -130,7 +130,7 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "Warehouse_B2B:serve"
+            "devServerTarget": "WareHouse_System:serve"
           }
         },
         "lint": {
@@ -145,5 +145,5 @@
       }
     }
   },
-  "defaultProject": "Warehouse_B2B"
+  "defaultProject": "WareHouse_System"
 }
