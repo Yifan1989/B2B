@@ -8,7 +8,7 @@ import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
 })
 export class HomeComponent {
     private loginForm = new FormGroup({
-        userName: new FormControl(''),
+        userEmail: new FormControl(''),
         passWord: new FormControl(''),
     });
 
