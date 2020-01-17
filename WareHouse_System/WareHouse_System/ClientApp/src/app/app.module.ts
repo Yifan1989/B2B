@@ -1,6 +1,6 @@
 ﻿import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
@@ -13,8 +13,9 @@ import { HomeComponent } from './Components/home/home.component';
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
-    FormsModule,
-    RouterModule.forRoot([
+      FormsModule,
+      ReactiveFormsModule,
+      RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
     ])
   ],

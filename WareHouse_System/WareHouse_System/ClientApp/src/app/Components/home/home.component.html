@@ -2,11 +2,24 @@
     hello world
 </div> 
 
+<div class="center">
+    <form [formGroup]="loginForm">
+      <div>
+          <label>
+            USERNAME:
+            <input type="text" formControlName="userName">
+          </label>
+      </div>
 
-<div>
-    <label>Email</label>
-    <input />
+      <div>
+          <label>
+            PASSWORD:
+            <input type="text" formControlName="passWord">
+          </label>
+      </div>
+    </form>
 
-    <label>Password</label>
-    <input />
+    <div>
+        <button (click)="confirmLogin($event)">Login</button>
+    </div>
 </div>
