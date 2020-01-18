@@ -1,0 +1,25 @@
+﻿<div>
+    hello world
+</div>
+
+<div class="center">
+    <form [formGroup]="loginForm">
+        <div>
+            <label>
+                EMAIL:
+                <input type="text" formControlName="userEmail" size="30">
+            </label>
+        </div>
+
+        <div>
+            <label>
+                PASSWORD:
+                <input type="text" formControlName="passWord">
+            </label>
+        </div>
+    </form>
+
+    <div>
+        <button (click)="confirmLogin($event)">Login</button>
+    </div>
+</div>
