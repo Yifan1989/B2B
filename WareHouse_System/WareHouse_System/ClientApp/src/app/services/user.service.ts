@@ -6,12 +6,20 @@ import { User } from '../models/user';
     providedIn: 'root'
 })
 export class UserService {
-
-    constructor() {
+    private baseUrl = "https://logtagonline.com/api/users/token";
+    constructor(private http: HttpClient) {
         
     }
 
     public authUser(userToAuth: User): void {
+      // post here and return observable, need to fix return value here
+      // subscribe the return observable in the component
+
+
+
+
+
+
         console.log(111);
     }
   
