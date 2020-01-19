@@ -19,7 +19,8 @@ export class UserService {
         // post here and return observable, need to fix return value here
         // subscribe the return observable in the component
         this.http.get(this.baseUrl + '/stuff/?id=123').subscribe((response) => {
-            console.log(response);
+            console.log(response['id']);
+            console.log(response['name']);
         });
 
     }
