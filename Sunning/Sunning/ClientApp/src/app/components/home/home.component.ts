@@ -28,10 +28,9 @@ export class HomeComponent {
             email: email,
             password: passWd
         }
-        //console.log(123);
-
+        //console.log(authUser.email, authUser.password);
+        this.userService.authUser();
     }
-
 }
 
 
