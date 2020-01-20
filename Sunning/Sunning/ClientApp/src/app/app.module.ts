@@ -6,13 +6,15 @@ import { HttpClientModule } from '@angular/common/http'
 //import { HttpClient } from 'selenium-webdriver/http';
 
 import { AppComponent } from './app.component';
-import { HomeComponent } from './components/home/home.component';
+import { HomeComponent } from './components/home/home.component';;
+import { SignupComponent } from './signup/signup.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent
-  ],
+,
+    SignupComponent  ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
       FormsModule,
