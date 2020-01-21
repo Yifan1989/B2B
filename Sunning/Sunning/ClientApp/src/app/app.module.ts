@@ -6,8 +6,8 @@ import { HttpClientModule } from '@angular/common/http'
 //import { HttpClient } from 'selenium-webdriver/http';
 
 import { AppComponent } from './app.component';
-import { HomeComponent } from './components/home/home.component';;
-import { SignupComponent } from './signup/signup.component'
+import { HomeComponent } from './components/home/home.component';
+import { SignupComponent } from './components/signup/signup.component';
 
 @NgModule({
   declarations: [

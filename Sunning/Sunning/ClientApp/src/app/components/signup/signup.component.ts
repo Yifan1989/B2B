@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+﻿import { Component, OnInit } from '@angular/core';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-signup',
@@ -6,10 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
+    private checkCreateUser: boolean;
 
-  constructor() { }
+    constructor(private userService: UserService) { }
 
-  ngOnInit() {
-  }
+    ngOnInit() {
+    }
 
+
+    private backToHome(): void {
+
+    }
 }

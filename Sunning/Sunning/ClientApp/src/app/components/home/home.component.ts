@@ -2,6 +2,7 @@
 import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
 import { UserService } from '../../services/user.service';
 import { User } from '../../models/user';
+import { BehaviorSubject, Subject } from '../../../../node_modules/rxjs';
 
 @Component({
     selector: 'app-home',
@@ -9,6 +10,8 @@ import { User } from '../../models/user';
     styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
+
+    private showLogin: boolean = true; 
     private loginForm = new FormGroup({
         userEmail: new FormControl(''),
         passWord: new FormControl(''),
@@ -17,10 +20,9 @@ export class HomeComponent {
     constructor(private userService: UserService) { }
 
     ngOninit(): void {}
-
-
-
+    
     private confirmLogin(): void {
+
         let email = this.loginForm.value.userEmail;
         let passWd = this.loginForm.value.passWord;
 
@@ -33,7 +35,10 @@ export class HomeComponent {
     }
 
     private signUp(): void {
-
+        let abs = new BehaviorSubject<boolean>(true);
+        abs.subscribe(value => console.log(value));
+        abs.next(false);
+        this.showLogin = abs.getValue();
     }
 }
 

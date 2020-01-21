@@ -1,4 +1,4 @@
-﻿<div class="center">
+﻿<div class="center" *ngIf="checkCreateUser">
     <form>
         <div>
             <label>
@@ -27,6 +27,6 @@
     </div>
 
     <div>
-        <button>Cancel</button>
+        <button (click)="backToHome($event)">Cancel</button>
     </div>
 </div>
