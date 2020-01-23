@@ -10,6 +10,7 @@ import { Observable, BehaviorSubject, Subject } from '../../../node_modules/rxjs
 })
 export class UserService {
     public logInAndCreateUser = new BehaviorSubject<boolean>(true);
+    public check = new BehaviorSubject<boolean>(true);
 
     private baseUrl = "https://83eec039-7434-489e-934b-02d43374e57c.mock.pstmn.io";
     constructor(private http: HttpClient) {
