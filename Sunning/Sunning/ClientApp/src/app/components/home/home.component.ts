@@ -9,6 +9,7 @@ import { BehaviorSubject, Subject } from '../../../../node_modules/rxjs';
     templateUrl: './home.component.html',
     styleUrls: ['./home.component.css']
 })
+
 export class HomeComponent {
     
     private loginForm = new FormGroup({
@@ -18,17 +19,17 @@ export class HomeComponent {
     
     private showLogin: boolean = true;
    
-    constructor(private userService: UserService) { }
+    constructor(private userService: UserService) {
+        this.userService.logInStatus.subscribe(value => this.showLogin = value);
+    }
 
     ngOninit(): void {
-        this.userService.logInStatus.subscribe(value => this.showLogin = value);
+
     }
     
     private confirmLogin(): void {
-
         let email = this.loginForm.value.userEmail;
         let passWd = this.loginForm.value.passWord;
-
         let authUser: User = {
             email: email,
             password: passWd
@@ -46,7 +47,7 @@ export class HomeComponent {
         */
         this.userService.logIn.next(false);
         this.userService.newUser.next(true);
-        //this.showLogin = this.userService.logInAndCreateUser.getValue();
+        //this.showLogin = this.userService.logIn.getValue();
     }
 }
 
