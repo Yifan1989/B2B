@@ -10,16 +10,19 @@ import { BehaviorSubject, Subject } from '../../../../node_modules/rxjs';
     styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
-
-    private showLogin: boolean = true; 
+    
     private loginForm = new FormGroup({
         userEmail: new FormControl(''),
         passWord: new FormControl(''),
     });
-        
+    
+    private showLogin: boolean = true;
+   
     constructor(private userService: UserService) { }
 
-    ngOninit(): void {}
+    ngOninit(): void {
+        this.userService.logInStatus.subscribe(value => this.showLogin = value);
+    }
     
     private confirmLogin(): void {
 
@@ -41,12 +44,9 @@ export class HomeComponent {
         abs.next(false);
         this.showLogin = abs.getValue();
         */
-
-        let naviCreateUser = this.userService.logInAndCreateUser;
-        naviCreateUser.subscribe(value => console.log(value));
-        naviCreateUser.next(false);
-        this.showLogin = naviCreateUser.getValue();
-
+        this.userService.logIn.next(false);
+        this.userService.newUser.next(true);
+        //this.showLogin = this.userService.logInAndCreateUser.getValue();
     }
 }
 

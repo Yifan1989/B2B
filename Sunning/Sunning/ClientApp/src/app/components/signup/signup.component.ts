@@ -7,12 +7,18 @@ import { UserService } from '../../services/user.service';
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
-    private checkCreateUser: boolean;
+    private checkCreateUser: boolean = false;
 
-    constructor(private userService: UserService) { }
+    constructor(private userService: UserService) {
 
-    ngOnInit() {}
+    }
+
+    ngOnInit() {
+        this.userService.newUserStatus.subscribe(value => this.checkCreateUser = value);
+    }
     
-    private backToHome(): void { }
-
+    private backToHome(): void {
+        this.userService.newUser.next(false);
+        //this.userService.logIn.next(false);
+    }
 }
