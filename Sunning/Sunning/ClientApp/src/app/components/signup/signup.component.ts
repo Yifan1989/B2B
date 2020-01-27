@@ -11,11 +11,8 @@ export class SignupComponent implements OnInit {
 
     constructor(private userService: UserService) { }
 
-    ngOnInit() {
-    }
+    ngOnInit() {}
+    
+    private backToHome(): void { }
 
-
-    private backToHome(): void {
-
-    }
 }

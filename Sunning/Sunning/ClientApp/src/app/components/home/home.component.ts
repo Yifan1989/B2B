@@ -35,10 +35,18 @@ export class HomeComponent {
     }
 
     private signUp(): void {
+        /*
         let abs = new BehaviorSubject<boolean>(true);
         abs.subscribe(value => console.log(value));
         abs.next(false);
         this.showLogin = abs.getValue();
+        */
+
+        let naviCreateUser = this.userService.logInAndCreateUser;
+        naviCreateUser.subscribe(value => console.log(value));
+        naviCreateUser.next(false);
+        this.showLogin = naviCreateUser.getValue();
+
     }
 }
 
