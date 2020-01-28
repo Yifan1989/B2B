@@ -36,6 +36,7 @@ export class HomeComponent {
         }
         //console.log(authUser.email, authUser.password);
         this.userService.authUser();
+        console.log("login successful!");
     }
 
     private signUp(): void {
