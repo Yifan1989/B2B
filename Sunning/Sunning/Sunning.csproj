@@ -31,6 +31,8 @@
     <Folder Include="ClientApp\src\app\services\" />
     <Folder Include="ClientApp\src\app\components\signup\" />
     <Folder Include="ClientApp\src\app\components\dashboard\" />
+    <Folder Include="Data\" />
+    <Folder Include="models\" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="ClientApp\src\app\models\user.ts" />
