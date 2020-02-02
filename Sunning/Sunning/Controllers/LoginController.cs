@@ -22,5 +22,8 @@ namespace Sunning.Controllers
         {
             return Ok(_db.Logins.ToList());
         }
+
+        [HttpPost]
+
     }
 }
