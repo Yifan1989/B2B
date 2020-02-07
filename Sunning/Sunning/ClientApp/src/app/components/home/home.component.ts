@@ -31,16 +31,15 @@ export class HomeComponent {
         let email = this.loginForm.value.userEmail;
         let passWd = this.loginForm.value.passWord;
         let authUser: User = {
-            email: email,
-            password: passWd
+            user: email,
+            passwd: passWd
         }
         //console.log(authUser.email, authUser.password);
         this.userService.authUser();
-        console.log("login successful!");
+
         this.userService.showDashBoard.next(true);
         this.userService.logIn.next(false);
         this.userService.newUser.next(false);
-        
     }
 
     private signUp(): void {

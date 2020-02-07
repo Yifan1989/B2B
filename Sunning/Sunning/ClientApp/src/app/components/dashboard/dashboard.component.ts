@@ -22,4 +22,8 @@ export class DashboardComponent implements OnInit {
         this.userService.newUser.next(false);
     }
 
+    private showUsers(): void {
+
+    }
+
 }
