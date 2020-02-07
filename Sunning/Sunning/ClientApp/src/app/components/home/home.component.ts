@@ -37,6 +37,10 @@ export class HomeComponent {
         //console.log(authUser.email, authUser.password);
         this.userService.authUser();
         console.log("login successful!");
+        this.userService.showDashBoard.next(true);
+        this.userService.logIn.next(false);
+        this.userService.newUser.next(false);
+        
     }
 
     private signUp(): void {

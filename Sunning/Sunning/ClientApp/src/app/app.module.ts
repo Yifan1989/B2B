@@ -8,8 +8,8 @@ import { UserService } from './services/user.service';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
-import { SignupComponent } from './components/signup/signup.component';;
-import { DashboardComponent } from './dashboard/dashboard.component'
+import { SignupComponent } from './components/signup/signup.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [

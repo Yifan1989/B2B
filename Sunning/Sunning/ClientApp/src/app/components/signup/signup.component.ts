@@ -17,7 +17,11 @@ export class SignupComponent implements OnInit {
     ngOnInit() {
 
     }
-    
+
+    private createNewUser(): void {
+
+    }
+
     private backToHome(): void {
         this.userService.newUser.next(false);
         this.userService.logIn.next(true);

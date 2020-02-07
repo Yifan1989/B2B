@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+﻿import { Component, OnInit } from '@angular/core';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() { }
+    private showDashBoard: boolean = false;
+    constructor(private userService: UserService) {
+        this.userService.showDashBoardStatus.subscribe(value => this.showDashBoard = value);
+    }
+    
+    ngOnInit() {
+    }
 
-  ngOnInit() {
-  }
+    private backHome(): void {
+        this.userService.showDashBoard.next(false);
+        this.userService.logIn.next(true);
+        this.userService.newUser.next(false);
+    }
 
 }

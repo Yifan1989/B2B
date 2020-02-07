@@ -16,6 +16,9 @@ export class UserService {
     public newUser = new BehaviorSubject<boolean>(false);
     public newUserStatus = this.newUser.asObservable();
 
+    public showDashBoard = new BehaviorSubject<boolean>(false);
+    public showDashBoardStatus = this.showDashBoard.asObservable();
+
     private baseUrl = "https://83eec039-7434-489e-934b-02d43374e57c.mock.pstmn.io";
     constructor(private http: HttpClient) {
         

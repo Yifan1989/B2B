@@ -1,3 +1,13 @@
-<p>
-  dashboard works!
-</p>
+﻿<div *ngIf="showDashBoard">
+    <p>
+        dashboard works!
+    </p>
+
+    <div>
+        <button (click)="backHome($event)">Home Page</button>
+    </div>
+</div>
+
+
+
+
