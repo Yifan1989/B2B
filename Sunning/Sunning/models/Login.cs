@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace Sunning.models
+namespace Sunning.Models
 {
     public class Login
     {

@@ -2,8 +2,9 @@
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using Sunning.Data;
-using Sunning.models;
+using Sunning.Models;
 using System.Threading.Tasks;
+using Sunning.Entities;
 
 namespace Sunning.Controllers
 {
@@ -18,11 +19,20 @@ namespace Sunning.Controllers
         }
 
         [HttpGet]
-        //return a list of employees from our database entity employees
-        public IActionResult GetLogins()
+        public IQueryable<LoginDTO> GetLogins()
         {
-            return Ok(_db.Logins.ToList());
+            var logins = from log in _db.Logins
+                         select new LoginDTO()
+                         {
+                             user = log.user,
+                             passwd = log.passwd
+                         };
+            return logins;
         }
+
+
+
+
 
         [HttpPost]
         public async Task<IActionResult> AddLogin([FromBody] Login objLogin)

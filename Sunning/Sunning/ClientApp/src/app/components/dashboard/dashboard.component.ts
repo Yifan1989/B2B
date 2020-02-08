@@ -9,6 +9,7 @@ import { UserService } from '../../services/user.service';
 export class DashboardComponent implements OnInit {
 
     private showDashBoard: boolean = false;
+    private showUsersButton: boolean = false;
     constructor(private userService: UserService) {
         this.userService.showDashBoardStatus.subscribe(value => this.showDashBoard = value);
     }
@@ -22,8 +23,13 @@ export class DashboardComponent implements OnInit {
         this.userService.newUser.next(false);
     }
 
-    private showUsers(): void {
+    private loadUsers(): void {
+        this.userService.getUsers();
+        this.showUsersButton = true;
+    }
 
+    private showUsers(): void {
+        console.log(this.userService.logInData);
     }
 
 }

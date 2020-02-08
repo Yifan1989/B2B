@@ -1,6 +1,6 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
-using Sunning.models;
+using Sunning.Models;
 
 namespace Sunning.Data
 {
