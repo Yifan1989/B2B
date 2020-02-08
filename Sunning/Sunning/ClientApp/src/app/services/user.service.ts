@@ -20,7 +20,7 @@ export class UserService {
     public showDashBoard = new BehaviorSubject<boolean>(false);
     public showDashBoardStatus = this.showDashBoard.asObservable();
 
-    public logInData: any;
+    public logInData: User[];
 
     private baseUrl = "https://83eec039-7434-489e-934b-02d43374e57c.mock.pstmn.io";
     constructor(private http: HttpClient) {
@@ -38,8 +38,10 @@ export class UserService {
 
     public getUsers(): void {
         let url = "https://localhost:5001/api/Login";
-        this.http.get(url).subscribe((response) => {
-            this.logInData = response;
+        this.http.get(url)
+            .subscribe((res: Response) => {
+            
+            console.log(res);
         });
     }
 }
