@@ -1,5 +1,6 @@
 ﻿import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../services/user.service';
+import { Observable, BehaviorSubject } from '../../../../node_modules/rxjs';
 
 @Component({
   selector: 'app-dashboard',
@@ -24,12 +25,12 @@ export class DashboardComponent implements OnInit {
     }
 
     private loadUsers(): void {
-        this.userService.getUsers();
+        //this.curLogins = this.userService.getUsers();
         this.showUsersButton = true;
     }
 
     private showUsers(): void {
-        console.log(this.userService.logInData);
+        console.log();
     }
 
 }

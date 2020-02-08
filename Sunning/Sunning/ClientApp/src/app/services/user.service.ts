@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 //import { HttpClient } from 'selenium-webdriver/http';
 import { Observable, BehaviorSubject, Subject } from '../../../node_modules/rxjs';
 import { forEach } from '../../../node_modules/@angular/router/src/utils/collection';
-
+import { map } from 'rxjs/operators';
 
 @Injectable({
     providedIn: 'root'
@@ -36,12 +36,8 @@ export class UserService {
         */
     }
 
-    public getUsers(): void {
+    public getUsers(): Observable<any> {
         let url = "https://localhost:5001/api/Login";
-        this.http.get(url)
-            .subscribe((res: Response) => {
-            
-            console.log(res);
-        });
+        return this.http.get(url).pipe(map((res: Response) => res.json()));
     }
 }
