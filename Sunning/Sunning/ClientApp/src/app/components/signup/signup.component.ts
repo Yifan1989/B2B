@@ -1,5 +1,6 @@
 ﻿import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../services/user.service';
+import { FormGroup } from '../../../../node_modules/@angular/forms';
 
 @Component({
   selector: 'app-signup',
@@ -9,6 +10,8 @@ import { UserService } from '../../services/user.service';
 
 export class SignupComponent implements OnInit {
     private checkCreateUser: boolean = false;
+
+    private newUserForm: FormGroup;
 
     constructor(private userService: UserService) {
         this.userService.newUserStatus.subscribe(value => this.checkCreateUser = value);
@@ -25,6 +28,5 @@ export class SignupComponent implements OnInit {
     private backToHome(): void {
         this.userService.newUser.next(false);
         this.userService.logIn.next(true);
-
     }
 }
