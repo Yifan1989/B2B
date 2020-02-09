@@ -36,8 +36,8 @@ export class UserService {
         */
     }
 
-    public getUsers(): Observable<any> {
+    public getUsers(): Observable<User[]> {
         let url = "https://localhost:5001/api/Login";
-        return this.http.get(url).pipe(map((res: Response) => res.json()));
+        return this.http.get<User[]>(url);
     }
 }

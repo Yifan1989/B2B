@@ -1,6 +1,7 @@
 ﻿import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../services/user.service';
 import { Observable, BehaviorSubject } from '../../../../node_modules/rxjs';
+import { User } from '../../models/user';
 
 @Component({
   selector: 'app-dashboard',
@@ -8,7 +9,8 @@ import { Observable, BehaviorSubject } from '../../../../node_modules/rxjs';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-
+    private curUsers: User[];
+    
     private showDashBoard: boolean = false;
     private showUsersButton: boolean = false;
     constructor(private userService: UserService) {
@@ -25,12 +27,12 @@ export class DashboardComponent implements OnInit {
     }
 
     private loadUsers(): void {
-        //this.curLogins = this.userService.getUsers();
+        this.userService.getUsers().subscribe(users => this.curUsers = users);
         this.showUsersButton = true;
     }
 
     private showUsers(): void {
-        console.log();
+        console.log(this.curUsers);
     }
 
 }
