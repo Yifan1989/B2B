@@ -15,6 +15,13 @@
         <button (click)="showUsers($event)">Show Users</button>
     </div>
 
+    <div>
+        <ul>
+            <li *ngFor="let user of curUsers">
+                <p>User: {{user.user}}   Password: {{user.passwd}}</p>
+            </li>
+        </ul>
+    </div>
 </div>
 
 
