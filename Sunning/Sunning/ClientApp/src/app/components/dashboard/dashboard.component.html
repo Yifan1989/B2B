@@ -13,7 +13,7 @@
 
 
 
-    <div>
+    <div *ngIf="showUsers">
         <ul>
             <li *ngFor="let user of curUsers">
                 <p>User: {{user.user}}   Password: {{user.passwd}}</p>

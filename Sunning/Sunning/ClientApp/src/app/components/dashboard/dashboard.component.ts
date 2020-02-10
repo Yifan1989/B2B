@@ -10,7 +10,7 @@ import { User } from '../../models/user';
 })
 export class DashboardComponent implements OnInit {
     private curUsers: User[];
-    
+    private showUsers: boolean = false;
     private showDashBoard: boolean = false;
     constructor(private userService: UserService) {
         this.userService.showDashBoardStatus.subscribe(value => this.showDashBoard = value);
@@ -23,10 +23,12 @@ export class DashboardComponent implements OnInit {
         this.userService.showDashBoard.next(false);
         this.userService.logIn.next(true);
         this.userService.newUser.next(false);
+        this.showUsers = false;
     }
 
     private loadUsers(): void {
         this.userService.getUsers().subscribe(users => this.curUsers = users);
+        this.showUsers = true;
     }
 
 }
