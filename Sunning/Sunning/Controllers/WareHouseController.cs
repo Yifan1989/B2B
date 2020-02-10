@@ -33,6 +33,17 @@ namespace Sunning.Controllers
             return warehouses;
         }
 
+        [HttpPost]
+        public async Task<IActionResult> AddWareHouse([FromBody] Warehouse objWarehouse)
+        {
+            if (!ModelState.IsValid)
+            {
+                return new JsonResult("Error While Creating New Warehouse");
+            }
+            _db.Warehouses.Add(objWarehouse);
+            await _db.SaveChangesAsync();
 
+            return new JsonResult("Warehouse Created Successfully");
+        }
     }
 }
