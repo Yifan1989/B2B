@@ -12,7 +12,8 @@ import { SignupComponent } from './components/signup/signup.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { WarehouseComponent } from './components/warehouse/warehouse.component';
 
-//import { MatDialogModule } from '@angular/material';
+import { DialogsModule } from '@progress/kendo-angular-dialog';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,9 @@ import { WarehouseComponent } from './components/warehouse/warehouse.component';
       HttpClientModule,
       RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
-    ])
+      ]),
+      DialogsModule,
+      BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent],
