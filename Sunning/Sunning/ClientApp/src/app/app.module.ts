@@ -10,13 +10,17 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { WarehouseComponent } from './components/warehouse/warehouse.component';
+
+//import { MatDialogModule } from '@angular/material';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     SignupComponent ,
-    DashboardComponent ],
+    DashboardComponent ,
+    WarehouseComponent],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
       FormsModule,
@@ -27,6 +31,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     ])
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [WarehouseComponent]
 })
 export class AppModule { }

@@ -34,6 +34,7 @@
     <Folder Include="Data\" />
     <Folder Include="Models\" />
     <Folder Include="Entities\" />
+    <Folder Include="ClientApp\src\app\components\warehouse\" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="ClientApp\src\app\models\user.ts" />
