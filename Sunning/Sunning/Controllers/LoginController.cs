@@ -31,9 +31,6 @@ namespace Sunning.Controllers
         }
 
 
-
-
-
         [HttpPost]
         public async Task<IActionResult> AddLogin([FromBody] Login objLogin)
         {

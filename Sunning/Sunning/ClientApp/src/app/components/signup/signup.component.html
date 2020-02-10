@@ -1,16 +1,16 @@
 ﻿<div class="center" *ngIf="checkCreateUser">
-    <form>
+    <form [formGroup]="newUserForm">
         <div>
             <label>
                 EMAIL:
-                <input type="text" size="30">
+                <input type="text" formControlName="user" size="30">
             </label>
         </div>
 
         <div>
             <label>
                 PASSWORD:
-                <input type="text">
+                <input type="text" formControlName="passwd">
             </label>
         </div>
 

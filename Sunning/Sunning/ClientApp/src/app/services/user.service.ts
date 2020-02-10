@@ -1,10 +1,18 @@
 ﻿import { Injectable } from '@angular/core';
 import { User } from '../models/user';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 //import { HttpClient } from 'selenium-webdriver/http';
 import { Observable, BehaviorSubject, Subject } from '../../../node_modules/rxjs';
 import { forEach } from '../../../node_modules/@angular/router/src/utils/collection';
 import { map } from 'rxjs/operators';
+
+
+const httpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type':  'application/json'
+  })
+};
+
 
 @Injectable({
     providedIn: 'root'
@@ -21,15 +29,15 @@ export class UserService {
     public showDashBoardStatus = this.showDashBoard.asObservable();
 
     public logInData: User[];
-
-    private baseUrl = "https://83eec039-7434-489e-934b-02d43374e57c.mock.pstmn.io";
+    private baseUrl: string = "https://localhost:5001/api/login";
+    private sampleUrl = "https://83eec039-7434-489e-934b-02d43374e57c.mock.pstmn.io";
     constructor(private http: HttpClient) {
         
     }
 
     public authUser(): void {
         /*
-        this.http.get(this.baseUrl + '/stuff/?id=123').subscribe((response) => {
+        this.http.get(this.sampleUrl + '/stuff/?id=123').subscribe((response) => {
             console.log(response['id']);
             console.log(response['name']);
             });
@@ -37,7 +45,10 @@ export class UserService {
     }
 
     public getUsers(): Observable<User[]> {
-        let url = "https://localhost:5001/api/Login";
-        return this.http.get<User[]>(url);
+        return this.http.get<User[]>(this.baseUrl);
+    }
+
+    public addUser(newUser: User): void {
+        this.http.post<User>(this.baseUrl, newUser).subscribe();
     }
 }
