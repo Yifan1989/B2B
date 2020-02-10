@@ -3,7 +3,7 @@
 new table:
 no need to do with migrations.
 
-create a table in the sqlservr
+create a table in the sqlserver
 1. add table in the ApplicationDbContext.cs file
 2. DTO file 
 3. model file
