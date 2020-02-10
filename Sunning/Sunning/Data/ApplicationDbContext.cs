@@ -17,5 +17,6 @@ namespace Sunning.Data
 
         // every set is like a table in the db
         public DbSet<Login> Logins { get; set; }
+        public DbSet<Warehouse> Warehouses { get; set; } 
     }
 }
