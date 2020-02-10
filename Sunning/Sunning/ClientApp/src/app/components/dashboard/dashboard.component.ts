@@ -12,7 +12,6 @@ export class DashboardComponent implements OnInit {
     private curUsers: User[];
     
     private showDashBoard: boolean = false;
-    private showUsersButton: boolean = false;
     constructor(private userService: UserService) {
         this.userService.showDashBoardStatus.subscribe(value => this.showDashBoard = value);
     }
@@ -28,11 +27,6 @@ export class DashboardComponent implements OnInit {
 
     private loadUsers(): void {
         this.userService.getUsers().subscribe(users => this.curUsers = users);
-        this.showUsersButton = true;
-    }
-
-    private showUsers(): void {
-        console.log(this.curUsers);
     }
 
 }
