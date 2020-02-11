@@ -2,7 +2,6 @@
 import { UserService } from '../../services/user.service';
 import { Observable, BehaviorSubject } from '../../../../node_modules/rxjs';
 import { User } from '../../models/user';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-dashboard',
