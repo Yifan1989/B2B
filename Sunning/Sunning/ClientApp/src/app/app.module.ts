@@ -12,7 +12,8 @@ import { SignupComponent } from './components/signup/signup.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { WarehouseComponent } from './components/warehouse/warehouse.component';
 
-//import { MatDialogModule } from '@angular/material';
+//import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { WarehouseComponent } from './components/warehouse/warehouse.component';
     DashboardComponent ,
     WarehouseComponent],
   imports: [
-    BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
+      //NgbModule,
+      BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
       FormsModule,
       ReactiveFormsModule,
       HttpClientModule,
