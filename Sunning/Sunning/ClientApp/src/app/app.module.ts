@@ -13,7 +13,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { WarehouseComponent } from './components/warehouse/warehouse.component';
 
 //import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { ModalModule } from 'ngx-bootstrap/modal';
+import { BsModalService, BsModalRef, ModalModule } from 'ngx-bootstrap/modal';
 
 
 @NgModule({

@@ -3,8 +3,7 @@ import { UserService } from '../../services/user.service';
 import { Observable, BehaviorSubject } from '../../../../node_modules/rxjs';
 import { User } from '../../models/user';
 
-
-import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
+import { BsModalService, BsModalRef, ModalModule } from 'ngx-bootstrap/modal';
 
 @Component({
   selector: 'app-dashboard',
@@ -16,7 +15,7 @@ export class DashboardComponent implements OnInit {
     private showUsers: boolean = false;
     private showDashBoard: boolean = false;
 
-    modalRef: BsModalRef;
+    private modalRef: BsModalRef;
 
     constructor(private userService: UserService,
                 private modalService: BsModalService) {
@@ -38,9 +37,7 @@ export class DashboardComponent implements OnInit {
         this.showUsers = true;
     }
 
-    private createNewWarehouse(): void {
-
+    private createNewWarehouse(template: TemplateRef<any>): void {
+        this.modalRef = this.modalService.show(template);
     }
-
-
 }

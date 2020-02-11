@@ -14,7 +14,5 @@ export class WarehouseComponent implements OnInit {
 
     }
 
-    openModal(template: TemplateRef<any>) {
-        this.modalRef = this.modalService.show(template);
-    }
+
 }
