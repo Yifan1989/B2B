@@ -1,9 +1,10 @@
-﻿import { Component, OnInit } from '@angular/core';
+﻿import { Component, OnInit, TemplateRef } from '@angular/core';
 import { UserService } from '../../services/user.service';
 import { Observable, BehaviorSubject } from '../../../../node_modules/rxjs';
 import { User } from '../../models/user';
 
-//import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
+import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 
 @Component({
   selector: 'app-dashboard',
@@ -14,7 +15,11 @@ export class DashboardComponent implements OnInit {
     private curUsers: User[];
     private showUsers: boolean = false;
     private showDashBoard: boolean = false;
-    constructor(private userService: UserService) {
+
+    modalRef: BsModalRef;
+
+    constructor(private userService: UserService,
+                private modalService: BsModalService) {
         this.userService.showDashBoardStatus.subscribe(value => this.showDashBoard = value);
     }
     
@@ -37,4 +42,9 @@ export class DashboardComponent implements OnInit {
 
     }
 
+    /*
+    openModal(template: TemplateRef<any>) {
+        this.modalRef = this.modalService.show(template);
+    }
+    */
 }

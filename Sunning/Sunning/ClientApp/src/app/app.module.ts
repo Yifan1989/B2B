@@ -13,6 +13,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { WarehouseComponent } from './components/warehouse/warehouse.component';
 
 //import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 
 @NgModule({
@@ -23,7 +24,7 @@ import { WarehouseComponent } from './components/warehouse/warehouse.component';
     DashboardComponent ,
     WarehouseComponent],
   imports: [
-      //NgbModule,
+      ModalModule.forRoot(),
       BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
       FormsModule,
       ReactiveFormsModule,
