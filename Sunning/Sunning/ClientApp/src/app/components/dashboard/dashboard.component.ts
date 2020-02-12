@@ -22,6 +22,7 @@ export class DashboardComponent implements OnInit {
     @ViewChild(WarehouseComponent)
     private warehouse: WarehouseComponent;
 
+
     constructor(private userService: UserService,
                 private modalService: BsModalService) {
         this.userService.showDashBoardStatus.subscribe(value => this.showDashBoard = value);
@@ -41,14 +42,9 @@ export class DashboardComponent implements OnInit {
         this.userService.getUsers().subscribe(users => this.curUsers = users);
         this.showUsers = true;
     }
-    /*
-    private createNewWarehouse(template: TemplateRef<any>): void {
-        this.modalRef = this.modalService.show(template);
-    }
-    */
 
     private createNewWarehouse(template: TemplateRef<any>): void {
-        this.modalRef = this.modalService.show(this.warehouse.elTemplate);
+        this.modalRef = this.modalService.show(this.warehouse.warehouseTemplate);
         //console.log(this.warehouse);
     }
 }

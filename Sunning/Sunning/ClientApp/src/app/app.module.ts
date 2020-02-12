@@ -33,7 +33,7 @@ import { BsModalService, BsModalRef, ModalModule } from 'ngx-bootstrap/modal';
       { path: '', component: HomeComponent, pathMatch: 'full' },
     ])
   ],
-  providers: [],
+  providers: [BsModalRef],
   bootstrap: [AppComponent],
   entryComponents: [WarehouseComponent]
 })

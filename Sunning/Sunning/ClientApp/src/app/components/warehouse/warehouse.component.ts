@@ -1,4 +1,4 @@
-﻿import { Component, OnInit, TemplateRef, ViewChild, ElementRef } from '@angular/core';
+﻿import { Component, OnInit, TemplateRef, ViewChild, ElementRef,Output, EventEmitter } from '@angular/core';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 
 @Component({
@@ -7,17 +7,24 @@ import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
   styleUrls: ['./warehouse.component.css']
 })
 export class WarehouseComponent implements OnInit {
-    @ViewChild('template')
-    public elTemplate: ElementRef;
+    @ViewChild('warehouseTemplate')
+    public warehouseTemplate: ElementRef;
 
    
-    private modalRef: BsModalRef;
+    //private modalRef: BsModalRef;
+    @Output() onHide = new EventEmitter<void>();
 
-    constructor(private modalService: BsModalService) {}
+    // needs to add into provider in app.module.ts file
+    constructor(private modalService: BsModalService,
+                public modalRef: BsModalRef) { }
 
     ngOnInit() {
 
     }
 
-
+    
+    private doHide(): void {
+        this.modalRef.hide();
+    }
+    
 }
