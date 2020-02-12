@@ -1,4 +1,4 @@
-﻿import { Component, OnInit, TemplateRef } from '@angular/core';
+﻿import { Component, OnInit, TemplateRef, ViewChild, ElementRef } from '@angular/core';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 
 @Component({
@@ -7,7 +7,12 @@ import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
   styleUrls: ['./warehouse.component.css']
 })
 export class WarehouseComponent implements OnInit {
-    modalRef: BsModalRef;
+    @ViewChild('template')
+    public elTemplate: ElementRef;
+
+   
+    private modalRef: BsModalRef;
+
     constructor(private modalService: BsModalService) {}
 
     ngOnInit() {

@@ -1,9 +1,11 @@
-﻿import { Component, OnInit, TemplateRef } from '@angular/core';
+﻿import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { UserService } from '../../services/user.service';
 import { Observable, BehaviorSubject } from '../../../../node_modules/rxjs';
 import { User } from '../../models/user';
 
 import { BsModalService, BsModalRef, ModalModule } from 'ngx-bootstrap/modal';
+
+import { WarehouseComponent } from '../../components/warehouse/warehouse.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -16,6 +18,9 @@ export class DashboardComponent implements OnInit {
     private showDashBoard: boolean = false;
 
     private modalRef: BsModalRef;
+
+    @ViewChild(WarehouseComponent)
+    private warehouse: WarehouseComponent;
 
     constructor(private userService: UserService,
                 private modalService: BsModalService) {
@@ -36,8 +41,14 @@ export class DashboardComponent implements OnInit {
         this.userService.getUsers().subscribe(users => this.curUsers = users);
         this.showUsers = true;
     }
-
+    /*
     private createNewWarehouse(template: TemplateRef<any>): void {
         this.modalRef = this.modalService.show(template);
+    }
+    */
+
+    private createNewWarehouse(template: TemplateRef<any>): void {
+        this.modalRef = this.modalService.show(this.warehouse.elTemplate);
+        //console.log(this.warehouse);
     }
 }
