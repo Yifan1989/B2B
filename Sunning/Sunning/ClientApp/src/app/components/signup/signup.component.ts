@@ -33,7 +33,7 @@ export class SignupComponent implements OnInit {
             passwd: passwd
         }
         this.userService.addUser(newUser);
-        console.log(user, passwd);
+        //console.log(user, passwd);
     }
 
     private backToHome(): void {

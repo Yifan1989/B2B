@@ -1,6 +1,7 @@
 ﻿import { Component, OnInit, TemplateRef, ViewChild, ElementRef,Output, EventEmitter } from '@angular/core';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { FormGroup, FormControl, FormBuilder } from '../../../../node_modules/@angular/forms';
+import { Warehouse } from '../../models/warehouse';
 
 @Component({
   selector: 'app-warehouse',
