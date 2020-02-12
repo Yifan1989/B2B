@@ -1,12 +1,47 @@
 ﻿<ng-template #warehouseTemplate>
     <div class="modal-header">
-        <h6 class="modal-title pull-left">Modal</h6>
-        <button type="button" class="close pull-right" aria-label="Close" (click)="doHide()">
+        <h6 class="col-12 modal-title text-center">New Warehouse</h6>
+        <!--<button type="button" class="close pull-right" aria-label="Close" (click)="doHide()">
             <span aria-hidden="true">&times;</span>
-        </button>
+        </button>-->
     </div>
+
     <div class="modal-body">
-        This is a modal.
+        <form [formGroup]="wareHouseForm">
+            <div>
+                <label>
+                    Warehouse Name:
+                    <input type="text" formControlName="name" size="30">
+                </label>
+            </div>
+
+            <div>
+                <label>
+                    Address:
+                    <input type="text" formControlName="address">
+                </label>
+            </div>
+
+            <div>
+                <label>
+                    Owner:
+                    <input type="text" formControlName="owner">
+                </label>
+            </div>
+
+            <div>
+                <label>
+                    Comment:
+                    <input type="text" formControlName="comment">
+                </label>
+            </div>
+        </form>
+
+        <div>
+            <button type="button" class="btn btn-primary" (click)="createNewWarehouse($event)">Confirm</button>
+        </div>
+
     </div>
+
 </ng-template>
 
