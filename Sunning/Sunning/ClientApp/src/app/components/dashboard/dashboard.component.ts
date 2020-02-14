@@ -2,10 +2,11 @@
 import { UserService } from '../../services/user.service';
 import { Observable, BehaviorSubject } from '../../../../node_modules/rxjs';
 import { User } from '../../models/user';
-
+import { Warehouse } from '../../models/warehouse';
 import { BsModalService, BsModalRef, ModalModule } from 'ngx-bootstrap/modal';
 
 import { WarehouseComponent } from '../../components/warehouse/warehouse.component';
+import { WarehouseService } from '../../services/warehouse.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -14,6 +15,7 @@ import { WarehouseComponent } from '../../components/warehouse/warehouse.compone
 })
 export class DashboardComponent implements OnInit {
     private curUsers: User[];
+    private curWareHouses: Warehouse[];
     private showUsers: boolean = false;
     private showDashBoard: boolean = false;
 
@@ -24,8 +26,11 @@ export class DashboardComponent implements OnInit {
 
 
     constructor(private userService: UserService,
-                private modalService: BsModalService) {
+        private modalService: BsModalService,
+        private warehouseService: WarehouseService)
+    {
         this.userService.showDashBoardStatus.subscribe(value => this.showDashBoard = value);
+        this.warehouseService.getWareHouses().subscribe(warehouses => this.curWareHouses = warehouses);
     }
     
     ngOnInit() {
