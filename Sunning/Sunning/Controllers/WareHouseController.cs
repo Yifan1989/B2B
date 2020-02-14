@@ -36,14 +36,27 @@ namespace Sunning.Controllers
         [HttpPost]
         public async Task<IActionResult> AddWareHouse([FromBody] Warehouse objWarehouse)
         {
+            //Console.WriteLine("1234567890");
             if (!ModelState.IsValid)
             {
                 return new JsonResult("Error While Creating New Warehouse");
             }
+
+            int newId = getLastWarehouseId();
+            //Console.WriteLine("nbanba nbanba nbanba nbanba");
+            //Console.WriteLine(newId);
+            objWarehouse.id = newId + 1;
+
             _db.Warehouses.Add(objWarehouse);
             await _db.SaveChangesAsync();
 
             return new JsonResult("Warehouse Created Successfully");
+        }
+
+        public int getLastWarehouseId()
+        {
+            int maxId = _db.Warehouses.Max(u => u.id);
+            return maxId;
         }
     }
 }
