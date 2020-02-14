@@ -22,7 +22,7 @@
 
     <div>
         <table class="table table-bordered table-hover">
-            <thead>
+            <thead align="center">
                 <tr>
                     <th scope="col">Warehouse Name</th>
                     <th scope="col">Warehouse Address</th>
@@ -31,7 +31,7 @@
                 </tr>
             </thead>
             <tbody *ngFor="let warehouse of curWareHouses">
-                <tr>
+                <tr align="center">
                     <td scope="row">{{warehouse.name}}</td>
                     <td>{{warehouse.address}}</td>
                     <td>{{warehouse.owner}}</td>
