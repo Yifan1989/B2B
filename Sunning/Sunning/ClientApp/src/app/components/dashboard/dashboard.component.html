@@ -20,7 +20,26 @@
     <button type="button" class="btn btn-primary" (click)="createNewWarehouse(template)">Create a New Warehouse</button>
     <app-warehouse></app-warehouse>
 
-
+    <div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Warehouse Name</th>
+                    <th scope="col">Warehouse Address</th>
+                    <th scope="col">Warehouse Owner</th>
+                    <th scope="col">The comments</th>
+                </tr>
+            </thead>
+            <tbody *ngFor="let warehouse of curWareHouses">
+                <tr>
+                    <td scope="row">{{warehouse.name}}</td>
+                    <td>{{warehouse.address}}</td>
+                    <td>{{warehouse.owner}}</td>
+                    <td>{{warehouse.comment}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 
 </div>
 
