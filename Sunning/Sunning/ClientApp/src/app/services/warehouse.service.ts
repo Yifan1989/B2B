@@ -11,6 +11,9 @@ export class WarehouseService {
     private baseUrl: string = "https://localhost:5001/api/Warehouse";
     public selectedWareHouse = new BehaviorSubject<Warehouse>(null);
 
+    public toEditSelectedWareHouse = new BehaviorSubject<boolean>(false);
+    public toEditWareHouseStatus = this.toEditSelectedWareHouse.asObservable();
+
     constructor(private http: HttpClient) { }
 
 

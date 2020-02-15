@@ -2,11 +2,11 @@
     <div>
         <button (click)="backHome($event)">Home Page</button>
     </div>
-
+    <br />
     <div>
         <button (click)="loadUsers($event)">Load Users</button>
     </div>
-    
+    <br />
     <div *ngIf="showUsers">
         <ul>
             <li *ngFor="let user of curUsers">
@@ -14,10 +14,8 @@
             </li>
         </ul>
     </div>
-   
     <div>
         <button type="button" class="btn btn-primary" (click)="createNewWarehouse(template)">Create a New Warehouse</button>
-        <app-warehouse></app-warehouse>
         <table class="table table-bordered table-hover">
             <thead align="center">
                 <tr>
@@ -40,6 +38,8 @@
                 </tr>
             </tbody>
         </table>
+
+        <app-warehouse></app-warehouse>
     </div>
 
 </div>
