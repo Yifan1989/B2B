@@ -19,7 +19,7 @@ export class DashboardComponent implements OnInit {
     private showUsers: boolean = false;
     private showDashBoard: boolean = false;
 
-    private modalRef: BsModalRef;
+    public modalRef: BsModalRef;
 
     @ViewChild(WarehouseComponent)
     private warehouse: WarehouseComponent;

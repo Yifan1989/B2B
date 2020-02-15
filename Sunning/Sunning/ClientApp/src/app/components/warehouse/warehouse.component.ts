@@ -3,13 +3,15 @@ import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { FormGroup, FormControl, FormBuilder } from '../../../../node_modules/@angular/forms';
 import { Warehouse } from '../../models/warehouse';
 import { WarehouseService } from '../../services/warehouse.service';
+import { DashboardComponent } from '../dashboard/dashboard.component';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-warehouse',
   templateUrl: './warehouse.component.html',
   styleUrls: ['./warehouse.component.css']
 })
-export class WarehouseComponent implements OnInit, AfterViewInit, AfterViewChecked {
+export class WarehouseComponent implements OnInit, AfterViewInit, AfterViewChecked{
     @ViewChild('warehouseTemplate')
     public warehouseTemplate: ElementRef;
 
@@ -25,11 +27,9 @@ export class WarehouseComponent implements OnInit, AfterViewInit, AfterViewCheck
 
     private toOpenEditWareHouse: boolean = false;
 
-    constructor(private modalService: BsModalService,
-                public modalRef: BsModalRef,
-                private wareHouseService: WarehouseService
-    ){
-        //this.wareHouseService.toEditWareHouseStatus.subscribe(value => this.toOpenEditWareHouse = value);
+    constructor(public userService: UserService,
+        public modalService: BsModalService,
+        public warehouseService: WarehouseService) {
     }
 
     ngOnInit() {
@@ -39,46 +39,33 @@ export class WarehouseComponent implements OnInit, AfterViewInit, AfterViewCheck
     ngAfterViewInit() {
 
     }
-
-
     //this is super useful
     ngAfterViewChecked() {
-        this.wareHouseService.toEditWareHouseStatus.subscribe(value => this.toOpenEditWareHouse = value);
+        this.warehouseService.toEditWareHouseStatus.subscribe(value => this.toOpenEditWareHouse = value);
         if (this.toOpenEditWareHouse) {
             this.wareHouseForm.setValue({
-                name: this.wareHouseService.selectedWareHouse.getValue().name,
-                address: this.wareHouseService.selectedWareHouse.getValue().address,
-                owner: this.wareHouseService.selectedWareHouse.getValue().owner,
-                comment: this.wareHouseService.selectedWareHouse.getValue().comment
+                name: this.warehouseService.selectedWareHouse.getValue().name,
+                address: this.warehouseService.selectedWareHouse.getValue().address,
+                owner: this.warehouseService.selectedWareHouse.getValue().owner,
+                comment: this.warehouseService.selectedWareHouse.getValue().comment
             });
         } else {
             this.wareHouseForm.reset();
         }
     }
 
-    /*
-    this.wareHouseForm.setValue({
-            name: this.wareHouseService.selectedWareHouse.getValue().name,
-            address: this.wareHouseService.selectedWareHouse.getValue().address,
-            owner: this.wareHouseService.selectedWareHouse.getValue().owner,
-            comment: this.wareHouseService.selectedWareHouse.getValue().comment
-            });
-    */
-    
-    private doHide(): void {
-        this.modalRef.hide();
-    }
-
-    private createNewWarehouse(): void {
+    private postNewWarehouse(): void {
         let newWareHouse = new Warehouse();
         newWareHouse.name = this.wareHouseForm.value.name;
         newWareHouse.owner = this.wareHouseForm.value.owner;
         newWareHouse.address = this.wareHouseForm.value.address;
         newWareHouse.comment = this.wareHouseForm.value.comment;
-        this.wareHouseService.createNewWarehouse(newWareHouse);
+        this.warehouseService.createNewWarehouse(newWareHouse);
     }
 
     private closeWarehouse(): void {
-        console.log(this.wareHouseService.selectedWareHouse.getValue());
+        //this.modalRef = this.modalService.show(this.warehouseTemplate);
+        //this.modalRef.hide();
+        console.log(this.warehouseService.selectedWareHouse.getValue());
     }
 }
