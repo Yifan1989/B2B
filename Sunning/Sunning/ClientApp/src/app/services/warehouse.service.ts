@@ -2,13 +2,15 @@
 import { Warehouse } from '../models/warehouse';
 import { TemplateDefinitionBuilder } from '../../../node_modules/@angular/compiler/src/render3/view/template';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from '../../../node_modules/rxjs';
+import { Observable, BehaviorSubject } from '../../../node_modules/rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class WarehouseService {
     private baseUrl: string = "https://localhost:5001/api/Warehouse";
+    public selectedWareHouse = new BehaviorSubject<Warehouse>(null);
+
     constructor(private http: HttpClient) { }
 
 

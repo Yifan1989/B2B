@@ -45,4 +45,8 @@ export class WarehouseComponent implements OnInit {
         newWareHouse.comment = this.wareHouseForm.value.comment;
         this.wareHouseService.createNewWarehouse(newWareHouse);
     }
+
+    private closeWarehouse(): void {
+
+    }
 }

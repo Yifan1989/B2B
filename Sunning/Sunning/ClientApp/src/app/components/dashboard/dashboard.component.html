@@ -14,13 +14,10 @@
             </li>
         </ul>
     </div>
-
-
-
-    <button type="button" class="btn btn-primary" (click)="createNewWarehouse(template)">Create a New Warehouse</button>
-    <app-warehouse></app-warehouse>
-
+   
     <div>
+        <button type="button" class="btn btn-primary" (click)="createNewWarehouse(template)">Create a New Warehouse</button>
+        <app-warehouse></app-warehouse>
         <table class="table table-bordered table-hover">
             <thead align="center">
                 <tr>
@@ -38,7 +35,7 @@
                     <td>{{warehouse.owner}}</td>
                     <td>{{warehouse.comment}}</td>
                     <td>
-                        <button type="button" class="btn btn-primary btn-sm">Edit</button>
+                        <button type="button" class="btn btn-primary btn-sm" (click)="editWarehouse(template, warehouse)">Edit</button>
                     </td>
                 </tr>
             </tbody>
