@@ -29,7 +29,7 @@ export class WarehouseComponent implements OnInit, AfterViewInit, AfterViewCheck
                 public modalRef: BsModalRef,
                 private wareHouseService: WarehouseService
     ){
-        this.wareHouseService.toEditWareHouseStatus.subscribe(value => this.toOpenEditWareHouse = value);
+        //this.wareHouseService.toEditWareHouseStatus.subscribe(value => this.toOpenEditWareHouse = value);
     }
 
     ngOnInit() {
@@ -43,13 +43,16 @@ export class WarehouseComponent implements OnInit, AfterViewInit, AfterViewCheck
 
     //this is super useful
     ngAfterViewChecked() {
+        this.wareHouseService.toEditWareHouseStatus.subscribe(value => this.toOpenEditWareHouse = value);
         if (this.toOpenEditWareHouse) {
             this.wareHouseForm.setValue({
-            name: this.wareHouseService.selectedWareHouse.getValue().name,
-            address: this.wareHouseService.selectedWareHouse.getValue().address,
-            owner: this.wareHouseService.selectedWareHouse.getValue().owner,
-            comment: this.wareHouseService.selectedWareHouse.getValue().comment
+                name: this.wareHouseService.selectedWareHouse.getValue().name,
+                address: this.wareHouseService.selectedWareHouse.getValue().address,
+                owner: this.wareHouseService.selectedWareHouse.getValue().owner,
+                comment: this.wareHouseService.selectedWareHouse.getValue().comment
             });
+        } else {
+            this.wareHouseForm.reset();
         }
     }
 

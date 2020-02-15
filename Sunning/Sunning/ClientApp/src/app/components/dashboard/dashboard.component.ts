@@ -49,8 +49,8 @@ export class DashboardComponent implements OnInit {
     }
 
     private createNewWarehouse(template: TemplateRef<any>): void {
+        this.warehouseService.toEditSelectedWareHouse.next(false);
         this.modalRef = this.modalService.show(this.warehouse.warehouseTemplate);
-        //console.log(this.warehouse);
     }
 
     private editWarehouse(template: TemplateRef<any>, selectedWarehouse: Warehouse): void {
