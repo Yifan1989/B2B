@@ -30,6 +30,6 @@ export class WarehouseService {
     }
 
     public setSelectedWareHouse(): void {
-
+        
     }
 }

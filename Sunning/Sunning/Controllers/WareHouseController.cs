@@ -58,5 +58,14 @@ namespace Sunning.Controllers
             int maxId = _db.Warehouses.Max(u => u.id);
             return maxId;
         }
+
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdateWarehouse([FromRoute] int id, [FromBody] Warehouse objWarehouse)
+        {
+            
+            _db.Warehouses.Update(objWarehouse);
+            await _db.SaveChangesAsync();
+            return new JsonResult("Warehouse Was Updated Successfully");
+        }
     }
 }
