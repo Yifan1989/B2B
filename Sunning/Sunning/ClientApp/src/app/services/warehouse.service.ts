@@ -3,6 +3,7 @@ import { Warehouse } from '../models/warehouse';
 import { TemplateDefinitionBuilder } from '../../../node_modules/@angular/compiler/src/render3/view/template';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, BehaviorSubject } from '../../../node_modules/rxjs';
+import { FormGroup } from '../../../node_modules/@angular/forms';
 
 @Injectable({
   providedIn: 'root'
@@ -14,6 +15,9 @@ export class WarehouseService {
     public toEditSelectedWareHouse = new BehaviorSubject<boolean>(false);
     public toEditWareHouseStatus = this.toEditSelectedWareHouse.asObservable();
 
+    public editWarehouseForm = new BehaviorSubject<FormGroup>(null);
+    public editWarehouseFormStatus = this.editWarehouseForm.asObservable();
+
     constructor(private http: HttpClient) { }
 
 
@@ -23,5 +27,9 @@ export class WarehouseService {
 
     public getWareHouses(): Observable<any> {
         return this.http.get<Warehouse[]>(this.baseUrl);
+    }
+
+    public setSelectedWareHouse(): void {
+
     }
 }

@@ -13,7 +13,8 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { WarehouseComponent } from './components/warehouse/warehouse.component';
 
 //import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { BsModalService, BsModalRef, ModalModule } from 'ngx-bootstrap/modal';
+import { BsModalService, BsModalRef, ModalModule } from 'ngx-bootstrap/modal';;
+import { EditWarehouseComponent } from './components/edit-warehouse/edit-warehouse.component'
 
 
 @NgModule({
@@ -22,7 +23,9 @@ import { BsModalService, BsModalRef, ModalModule } from 'ngx-bootstrap/modal';
     HomeComponent,
     SignupComponent ,
     DashboardComponent ,
-    WarehouseComponent],
+    WarehouseComponent,
+    EditWarehouseComponent],
+
   imports: [
       ModalModule.forRoot(),
       BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

@@ -6,6 +6,7 @@ import { Warehouse } from '../../models/warehouse';
 import { BsModalService, BsModalRef, ModalModule } from 'ngx-bootstrap/modal';
 
 import { WarehouseComponent } from '../../components/warehouse/warehouse.component';
+import { EditWarehouseComponent } from '../../components/edit-warehouse/edit-warehouse.component';
 import { WarehouseService } from '../../services/warehouse.service';
 
 @Component({
@@ -24,6 +25,8 @@ export class DashboardComponent implements OnInit {
     @ViewChild(WarehouseComponent)
     private warehouse: WarehouseComponent;
 
+    @ViewChild(EditWarehouseComponent)
+    private editWarehouse: EditWarehouseComponent;
 
     constructor(private userService: UserService,
         private modalService: BsModalService,
@@ -53,9 +56,13 @@ export class DashboardComponent implements OnInit {
         this.modalRef = this.modalService.show(this.warehouse.warehouseTemplate);
     }
 
-    private editWarehouse(template: TemplateRef<any>, selectedWarehouse: Warehouse): void {
+    private toEditWarehouse(template: TemplateRef<any>, selectedWarehouse: Warehouse): void {
+
+
         this.warehouseService.selectedWareHouse.next(selectedWarehouse);
-        this.warehouseService.toEditSelectedWareHouse.next(true);
-        this.modalRef = this.modalService.show(this.warehouse.warehouseTemplate);
+        this.warehouseService.setSelectedWareHouse();
+        //this.warehouseService.toEditSelectedWareHouse.next(true);
+
+        this.modalRef = this.modalService.show(this.editWarehouse.editWarehouseTemplate);
     }
 }

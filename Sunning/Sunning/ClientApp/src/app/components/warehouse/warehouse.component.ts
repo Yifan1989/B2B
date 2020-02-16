@@ -33,7 +33,7 @@ export class WarehouseComponent implements OnInit, AfterViewInit, AfterViewCheck
     }
 
     ngOnInit() {
-
+        console.log("123");
     }
 
     ngAfterViewInit() {
@@ -41,6 +41,7 @@ export class WarehouseComponent implements OnInit, AfterViewInit, AfterViewCheck
     }
     //this is super useful
     ngAfterViewChecked() {
+        /*
         this.warehouseService.toEditWareHouseStatus.subscribe(value => this.toOpenEditWareHouse = value);
         if (this.toOpenEditWareHouse) {
             this.wareHouseForm.setValue({
@@ -51,7 +52,8 @@ export class WarehouseComponent implements OnInit, AfterViewInit, AfterViewCheck
             });
         } else {
             this.wareHouseForm.reset();
-        }
+            }
+        */
     }
 
     private postNewWarehouse(): void {

@@ -1,0 +1,44 @@
+﻿<div>
+    <ng-template #editWarehouseTemplate>
+        <div class="modal-header">
+            <h6 class="col-12 modal-title text-center">Edit the Infomations of the Warehouse</h6>
+        </div>
+
+        <div class="modal-body">
+            <form [formGroup]="editWareHouseForm">
+                <div>
+                    <label>
+                        Warehouse Name:
+                        <input type="text" formControlName="name" size="30">
+                    </label>
+                </div>
+
+                <div>
+                    <label>
+                        Address:
+                        <input type="text" formControlName="address">
+                    </label>
+                </div>
+
+                <div>
+                    <label>
+                        Owner:
+                        <input type="text" formControlName="owner">
+                    </label>
+                </div>
+
+                <div>
+                    <label>
+                        Comment:
+                        <input type="text" formControlName="comment">
+                    </label>
+                </div>
+            </form>
+
+            <div>
+                <button type="button" class="btn btn-primary" (click)="changeWarehouse($event)" style="margin:5px;">Confirm to Change</button>
+                <button type="button" class="btn btn-primary" (click)="closeDialog($event)">Cancel</button>
+            </div>
+        </div>
+    </ng-template>
+</div>

@@ -35,13 +35,15 @@
                     <td>{{warehouse.owner}}</td>
                     <td>{{warehouse.comment}}</td>
                     <td>
-                        <button type="button" class="btn btn-primary btn-sm" (click)="editWarehouse(template, warehouse)">Edit</button>
+                        <button type="button" class="btn btn-primary btn-sm" (click)="toEditWarehouse(template, warehouse)">Edit</button>
                     </td>
                 </tr>
             </tbody>
         </table>
 
+
         <app-warehouse></app-warehouse>
+        <app-edit-warehouse></app-edit-warehouse>
     </div>
 
 </div>
