@@ -40,12 +40,14 @@ export class EditWarehouseComponent implements OnInit, AfterViewInit, AfterViewC
 
     }
 
-
-
-
-
     private changeWarehouse(): void {
-
+        let newWareHouse = new Warehouse();
+        newWareHouse.id = this.warehouseService.selectedWareHouse.getValue().id;
+        newWareHouse.name = this.editWareHouseForm.value.name;
+        newWareHouse.owner = this.editWareHouseForm.value.owner;
+        newWareHouse.address = this.editWareHouseForm.value.address;
+        newWareHouse.comment = this.editWareHouseForm.value.comment;
+        this.warehouseService.editWarehouse(newWareHouse);
     }
 
     private closeDialog(): void {

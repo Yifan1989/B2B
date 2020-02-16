@@ -62,7 +62,6 @@ namespace Sunning.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateWarehouse([FromRoute] int id, [FromBody] Warehouse objWarehouse)
         {
-            
             _db.Warehouses.Update(objWarehouse);
             await _db.SaveChangesAsync();
             return new JsonResult("Warehouse Was Updated Successfully");

@@ -32,4 +32,11 @@ export class WarehouseService {
     public setSelectedWareHouse(): void {
         
     }
+
+    public editWarehouse(changedWarehouse: Warehouse): void {
+        let wareHouseId: number = changedWarehouse.id;
+        let url = this.baseUrl + "/" + wareHouseId.toString();
+        //console.log(url);
+        this.http.put<Warehouse>(url, changedWarehouse).subscribe();
+    }
 }

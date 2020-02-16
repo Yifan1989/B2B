@@ -62,7 +62,6 @@ export class DashboardComponent implements OnInit {
         this.warehouseService.selectedWareHouse.next(selectedWarehouse);
         this.warehouseService.setSelectedWareHouse();
         //this.warehouseService.toEditSelectedWareHouse.next(true);
-
         this.modalRef = this.modalService.show(this.editWarehouse.editWarehouseTemplate);
     }
 }
