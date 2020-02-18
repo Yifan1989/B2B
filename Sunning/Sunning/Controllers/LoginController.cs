@@ -25,10 +25,10 @@ namespace Sunning.Controllers
             {
                 if (loginUser.user.Equals(log.user) && loginUser.passwd.Equals(log.passwd))
                 {
-                    return new JsonResult("Login Successfully!");
+                    return new JsonResult("true");
                 }
             }
-            return new JsonResult("Password is not correct!");
+            return new JsonResult("false");
         }
 
         [HttpGet]

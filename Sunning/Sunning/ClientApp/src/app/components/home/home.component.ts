@@ -18,9 +18,11 @@ export class HomeComponent {
     });
     
     private showLogin: boolean = true;
-   
+    private userLoggedIn: boolean = false;
+
     constructor(private userService: UserService) {
         this.userService.logInStatus.subscribe(value => this.showLogin = value);
+        this.userService.userLoggedInStatus.subscribe(value => this.userLoggedIn = value);
     }
 
     ngOninit(): void {
@@ -37,9 +39,13 @@ export class HomeComponent {
         //console.log(authUser.email, authUser.password);
         this.userService.authUser(authUser);
 
-        this.userService.showDashBoard.next(true);
-        this.userService.logIn.next(false);
-        this.userService.newUser.next(false);
+        /*
+        if (this.userLoggedIn) {
+            this.userService.showDashBoard.next(true);
+            this.userService.logIn.next(false);
+            this.userService.newUser.next(false);
+        }
+        */
     }
 
     private signUp(): void {
