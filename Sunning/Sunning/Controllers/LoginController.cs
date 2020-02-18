@@ -19,14 +19,16 @@ namespace Sunning.Controllers
         }
 
         [HttpPost("{user}")]
-        public async Task<IActionResult> CheckLogin([FromBody] Login loginUser)
+        public JsonResult CheckLogin([FromBody] Login loginUser)
         {
-            var result = _db.Logins.Where(x => x.passwd == loginUser.passwd);
-            if (result == null)
+            foreach(var log in _db.Logins)
             {
-                return new JsonResult("Password is not correct!");
+                if (loginUser.user.Equals(log.user) && loginUser.passwd.Equals(log.passwd))
+                {
+                    return new JsonResult("Login Successfully!");
+                }
             }
-            return new JsonResult("Login Successfully!");
+            return new JsonResult("Password is not correct!");
         }
 
         [HttpGet]

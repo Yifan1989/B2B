@@ -29,15 +29,15 @@ export class UserService {
     public showDashBoardStatus = this.showDashBoard.asObservable();
 
     public logInData: User[];
-    private baseUrl: string = "https://localhost:5001/api/login";
+    private baseUrl: string = "https://localhost:5001/api/Login";
     private sampleUrl = "https://83eec039-7434-489e-934b-02d43374e57c.mock.pstmn.io";
     constructor(private http: HttpClient) {
         
     }
 
-    public authUser(loginUser: User): Observable<string> {
+    public authUser(loginUser: User): void {
         let url = this.baseUrl + "/" + loginUser.user;
-        return this.http.post<User>(url, User).subscribe();
+        this.http.post<User>(url, loginUser).subscribe(response => console.log(response));
     }
 
     public getUsers(): Observable<User[]> {
