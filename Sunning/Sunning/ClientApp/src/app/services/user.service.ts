@@ -35,13 +35,9 @@ export class UserService {
         
     }
 
-    public authUser(): void {
-        /*
-        this.http.get(this.sampleUrl + '/stuff/?id=123').subscribe((response) => {
-            console.log(response['id']);
-            console.log(response['name']);
-            });
-        */
+    public authUser(loginUser: User): Observable<string> {
+        let url = this.baseUrl + "/" + loginUser.user;
+        return this.http.post<User>(url, User).subscribe();
     }
 
     public getUsers(): Observable<User[]> {

@@ -35,7 +35,7 @@ export class HomeComponent {
             passwd: passWd
         }
         //console.log(authUser.email, authUser.password);
-        this.userService.authUser();
+        this.userService.authUser(authUser);
 
         this.userService.showDashBoard.next(true);
         this.userService.logIn.next(false);

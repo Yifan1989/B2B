@@ -18,6 +18,17 @@ namespace Sunning.Controllers
             _db = db;
         }
 
+        [HttpPost("{user}")]
+        public async Task<IActionResult> CheckLogin([FromBody] Login loginUser)
+        {
+            var result = _db.Logins.Where(x => x.passwd == loginUser.passwd);
+            if (result == null)
+            {
+                return new JsonResult("Password is not correct!");
+            }
+            return new JsonResult("Login Successfully!");
+        }
+
         [HttpGet]
         public IQueryable<LoginDTO> GetLogins()
         {
