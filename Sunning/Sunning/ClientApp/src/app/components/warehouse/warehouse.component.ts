@@ -33,7 +33,7 @@ export class WarehouseComponent implements OnInit, AfterViewInit, AfterViewCheck
     }
 
     ngOnInit() {
-        console.log("123");
+        //console.log("123");
     }
 
     ngAfterViewInit() {

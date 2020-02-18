@@ -31,6 +31,9 @@ export class UserService {
     public userLoggedIn = new BehaviorSubject<boolean>(false);
     public userLoggedInStatus = this.userLoggedIn.asObservable();
 
+    public failLoggedIn = new BehaviorSubject<boolean>(null);
+    public failLoggedInStatus = this.failLoggedIn.asObservable();
+
     public logInData: User[];
     private baseUrl: string = "https://localhost:5001/api/Login";
     private sampleUrl = "https://83eec039-7434-489e-934b-02d43374e57c.mock.pstmn.io";
@@ -41,12 +44,17 @@ export class UserService {
     public authUser(loginUser: User): void {
         let url = this.baseUrl + "/" + loginUser.user;
         this.http.post<string>(url, loginUser).subscribe(response => {
-            console.log(response);
+            //console.log(response);
             if (response === "true") {
                 this.userLoggedIn.next(true);
+                this.failLoggedIn.next(false);
+
                 this.showDashBoard.next(true);
                 this.logIn.next(false);
                 this.newUser.next(false);
+            }
+            else {
+                this.failLoggedIn.next(true);
             }
         });
     }
