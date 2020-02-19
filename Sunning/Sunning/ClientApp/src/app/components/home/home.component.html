@@ -1,25 +1,33 @@
 ﻿
 
-<div class="center" *ngIf="showLogin">
-    <form [formGroup]="loginForm">
-        <div>
-            <label>
-                EMAIL:
-                <input type="text" formControlName="userEmail" size="30">
-            </label>
-        </div>
+<div *ngIf="showLogin">
+    <div id="center">
+        <p>
+            Welcome to the Warehouse System!
+        </p>
+    </div>
+
+    <div class="center">
+        <form [formGroup]="loginForm">
+            <div>
+                <label>
+                    EMAIL:
+                    <input type="text" formControlName="userEmail" size="30">
+                </label>
+            </div>
+
+            <div>
+                <label>
+                    PASSWORD:
+                    <input type="text" formControlName="passWord">
+                </label>
+            </div>
+        </form>
 
         <div>
-            <label>
-                PASSWORD:
-                <input type="text" formControlName="passWord">
-            </label>
+            <button (click)="confirmLogin($event)" style="margin:5px;">Login</button>
+            <button (click)="signUp($event)">Create New User</button>
         </div>
-    </form>
-
-    <div>
-        <button (click)="confirmLogin($event)" style="margin:5px;">Login</button>
-        <button (click)="signUp($event)">Create New User</button>
     </div>
 </div>
 
