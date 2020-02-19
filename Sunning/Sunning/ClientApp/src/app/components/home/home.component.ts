@@ -49,6 +49,7 @@ export class HomeComponent implements OnInit, AfterViewInit{
     }
 
     private signUp(): void {
+        this.failedLoggedIn = false;
         this.userService.logIn.next(false);
         this.userService.newUser.next(true);
     }
