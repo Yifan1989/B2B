@@ -8,6 +8,7 @@ import { BsModalService, BsModalRef, ModalModule } from 'ngx-bootstrap/modal';
 import { WarehouseComponent } from '../../components/warehouse/warehouse.component';
 import { EditWarehouseComponent } from '../../components/edit-warehouse/edit-warehouse.component';
 import { WarehouseService } from '../../services/warehouse.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -30,7 +31,8 @@ export class DashboardComponent implements OnInit {
 
     constructor(private userService: UserService,
         private modalService: BsModalService,
-        private warehouseService: WarehouseService)
+        private warehouseService: WarehouseService,
+        private router: Router)
     {
         this.userService.showDashBoardStatus.subscribe(value => this.showDashBoard = value);
         this.warehouseService.getWareHouses().subscribe(warehouses => this.curWareHouses = warehouses);
@@ -45,6 +47,7 @@ export class DashboardComponent implements OnInit {
         this.userService.newUser.next(false);
         this.userService.navBar.next(false);
         this.showUsers = false;
+        this.router.navigateByUrl('');
     }
 
     private loadUsers(): void {

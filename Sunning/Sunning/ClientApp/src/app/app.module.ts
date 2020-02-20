@@ -26,7 +26,9 @@ const appRoutes: Routes = [
     { path: 'dashboard', component: DashboardComponent },
     { path: 'shipments', component: ShipmentsComponent },
     { path: 'products', component: ProductsComponent },
-    { path: 'contact', component: ContactComponent }
+    { path: 'contact', component: ContactComponent },
+    { path: 'navbar', component: NavbarComponent },
+    { path: '', component: HomeComponent }
 ];
     
 @NgModule({

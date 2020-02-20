@@ -1,53 +1,53 @@
-﻿<app-navbar></app-navbar>
-    <div *ngIf="showDashBoard">
-        <div>
-            <button (click)="backHome($event)">Home Page</button>
-        </div>
-        <br />
-        <div>
-            <button (click)="loadUsers($event)">Load Users</button>
-        </div>
-        <br />
-        <div *ngIf="showUsers">
-            <ul>
-                <li *ngFor="let user of curUsers">
-                    <p>User: {{user.user}}   Password: {{user.passwd}}</p>
-                </li>
-            </ul>
-        </div>
-        <div>
-            <button type="button" class="btn btn-primary" (click)="createNewWarehouse(template)">Create a New Warehouse</button>
-            <table class="table table-bordered table-hover">
-                <thead align="center">
-                    <tr>
-                        <th scope="col">Warehouse ID</th>
-                        <th scope="col">Warehouse Name</th>
-                        <th scope="col">Warehouse Address</th>
-                        <th scope="col">Warehouse Owner</th>
-                        <th scope="col">The comments</th>
-                        <th scope="col">Change Details</th>
-                    </tr>
-                </thead>
-                <tbody *ngFor="let warehouse of curWareHouses">
-                    <tr align="center">
-                        <td scope="row">{{warehouse.id}}</td>
-                        <td>{{warehouse.name}}</td>
-                        <td>{{warehouse.address}}</td>
-                        <td>{{warehouse.owner}}</td>
-                        <td>{{warehouse.comment}}</td>
-                        <td>
-                            <button type="button" class="btn btn-primary btn-sm" (click)="toEditWarehouse(template, warehouse)">Edit</button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-
-
-            <app-warehouse></app-warehouse>
-            <app-edit-warehouse></app-edit-warehouse>
-        </div>
-
+﻿
+    <!--<div *ngIf="showDashBoard">-->
+<div>
+    <div>
+        <button (click)="backHome($event)">Home Page</button>
     </div>
+    <br />
+    <div>
+        <button (click)="loadUsers($event)">Load Users</button>
+    </div>
+    <br />
+    <div *ngIf="showUsers">
+        <ul>
+            <li *ngFor="let user of curUsers">
+                <p>User: {{user.user}}   Password: {{user.passwd}}</p>
+            </li>
+        </ul>
+    </div>
+    <div>
+        <button type="button" class="btn btn-primary" (click)="createNewWarehouse(template)">Create a New Warehouse</button>
+        <table class="table table-bordered table-hover">
+            <thead align="center">
+                <tr>
+                    <th scope="col">Warehouse ID</th>
+                    <th scope="col">Warehouse Name</th>
+                    <th scope="col">Warehouse Address</th>
+                    <th scope="col">Warehouse Owner</th>
+                    <th scope="col">The comments</th>
+                    <th scope="col">Change Details</th>
+                </tr>
+            </thead>
+            <tbody *ngFor="let warehouse of curWareHouses">
+                <tr align="center">
+                    <td scope="row">{{warehouse.id}}</td>
+                    <td>{{warehouse.name}}</td>
+                    <td>{{warehouse.address}}</td>
+                    <td>{{warehouse.owner}}</td>
+                    <td>{{warehouse.comment}}</td>
+                    <td>
+                        <button type="button" class="btn btn-primary btn-sm" (click)="toEditWarehouse(template, warehouse)">Edit</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+
+        <app-warehouse></app-warehouse>
+        <app-edit-warehouse></app-edit-warehouse>
+    </div>
+</div>
 
 
 

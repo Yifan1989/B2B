@@ -5,6 +5,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, BehaviorSubject, Subject } from '../../../node_modules/rxjs';
 import { forEach } from '../../../node_modules/@angular/router/src/utils/collection';
 import { map } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 
 const httpOptions = {
@@ -40,7 +41,7 @@ export class UserService {
     public logInData: User[];
     private baseUrl: string = "https://localhost:5001/api/Login";
     private sampleUrl = "https://83eec039-7434-489e-934b-02d43374e57c.mock.pstmn.io";
-    constructor(private http: HttpClient) {
+    constructor(private http: HttpClient, private router: Router) {
         
     }
 
@@ -51,11 +52,14 @@ export class UserService {
             if (response === "true") {
                 this.userLoggedIn.next(true);
                 this.failLoggedIn.next(false);
-
-                this.showDashBoard.next(true);
                 this.logIn.next(false);
                 this.newUser.next(false);
+                
+                //this.showDashBoard.next(true);
                 this.navBar.next(true);
+                this.router.navigateByUrl('/dashboard');
+
+                //
             }
             else {
                 this.failLoggedIn.next(true);
