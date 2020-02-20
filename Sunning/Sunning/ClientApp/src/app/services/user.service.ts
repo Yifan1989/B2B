@@ -26,9 +26,6 @@ export class UserService {
     public newUser = new BehaviorSubject<boolean>(false);
     public newUserStatus = this.newUser.asObservable();
 
-    public showDashBoard = new BehaviorSubject<boolean>(false);
-    public showDashBoardStatus = this.showDashBoard.asObservable();
-
     public userLoggedIn = new BehaviorSubject<boolean>(false);
     public userLoggedInStatus = this.userLoggedIn.asObservable();
 

@@ -19,7 +19,6 @@ export class DashboardComponent implements OnInit {
     private curUsers: User[];
     private curWareHouses: Warehouse[];
     private showUsers: boolean = false;
-    private showDashBoard: boolean = false;
 
     public modalRef: BsModalRef;
 
@@ -34,7 +33,6 @@ export class DashboardComponent implements OnInit {
         private warehouseService: WarehouseService,
         private router: Router)
     {
-        this.userService.showDashBoardStatus.subscribe(value => this.showDashBoard = value);
         this.warehouseService.getWareHouses().subscribe(warehouses => this.curWareHouses = warehouses);
     }
     
@@ -42,7 +40,6 @@ export class DashboardComponent implements OnInit {
     }
 
     private backHome(): void {
-        this.userService.showDashBoard.next(false);
         this.userService.logIn.next(true);
         this.userService.newUser.next(false);
         this.userService.navBar.next(false);
