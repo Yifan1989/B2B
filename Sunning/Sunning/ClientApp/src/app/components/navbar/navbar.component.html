@@ -1,10 +1,13 @@
 ﻿<div *ngIf="navBar">
     <nav class="navbar navbar-dark bg-dark" id="navHeight">
         <div>
-            <a class="navbar-brand" href="#">Dashboard</a>
-            <a class="navbar-brand" href="#">Shipments</a>
-            <a class="navbar-brand" href="#">Products</a>
-            <a class="navbar-brand" href="#">Contact</a>
+            <a class="navbar-brand" routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
+            <a class="navbar-brand" routerLink="/shipments" routerLinkActive="active">Shipments</a>
+            <a class="navbar-brand" routerLink="/products" routerLinkActive="active">Products</a>
+            <a class="navbar-brand" routerLink="/contact" routerLinkActive="active">Contact</a>
         </div>
     </nav>
 </div>
+
+<router-outlet></router-outlet>
+<!-- Routed components go here -->

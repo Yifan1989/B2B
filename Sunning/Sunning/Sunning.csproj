@@ -23,6 +23,7 @@
     <None Include="$(SpaRoot)**" Exclude="$(SpaRoot)node_modules\**" />
     <None Remove="ClientApp\src\app\models\user.ts" />
     <None Remove="ClientApp\src\app\models\warehouse.ts" />
+    <None Remove="ClientApp\src\app\components\products\products.component.css" />
   </ItemGroup>
 
   <ItemGroup>
@@ -38,6 +39,9 @@
     <Folder Include="ClientApp\src\app\components\warehouse\" />
     <Folder Include="ClientApp\src\app\components\edit-warehouse\" />
     <Folder Include="ClientApp\src\app\components\navbar\" />
+    <Folder Include="ClientApp\src\app\components\contact\" />
+    <Folder Include="ClientApp\src\app\components\products\" />
+    <Folder Include="ClientApp\src\app\components\shipments\" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="ClientApp\src\app\models\user.ts" />
