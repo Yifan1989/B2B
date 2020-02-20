@@ -43,6 +43,7 @@ export class DashboardComponent implements OnInit {
         this.userService.showDashBoard.next(false);
         this.userService.logIn.next(true);
         this.userService.newUser.next(false);
+        this.userService.navBar.next(false);
         this.showUsers = false;
     }
 

@@ -37,6 +37,7 @@
     <Folder Include="Entities\" />
     <Folder Include="ClientApp\src\app\components\warehouse\" />
     <Folder Include="ClientApp\src\app\components\edit-warehouse\" />
+    <Folder Include="ClientApp\src\app\components\navbar\" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="ClientApp\src\app\models\user.ts" />

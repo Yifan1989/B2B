@@ -1,0 +1,7 @@
+﻿#navHeight {
+    height: 1px !important; /*i assume your navbar size 100px*/
+}
+
+.navbar {
+    padding: 1rem
+}

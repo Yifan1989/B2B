@@ -34,6 +34,9 @@ export class UserService {
     public failLoggedIn = new BehaviorSubject<boolean>(null);
     public failLoggedInStatus = this.failLoggedIn.asObservable();
 
+    public navBar = new BehaviorSubject<boolean>(null);
+    public navBarStatus = this.navBar.asObservable();
+
     public logInData: User[];
     private baseUrl: string = "https://localhost:5001/api/Login";
     private sampleUrl = "https://83eec039-7434-489e-934b-02d43374e57c.mock.pstmn.io";
@@ -52,6 +55,7 @@ export class UserService {
                 this.showDashBoard.next(true);
                 this.logIn.next(false);
                 this.newUser.next(false);
+                this.navBar.next(true);
             }
             else {
                 this.failLoggedIn.next(true);
