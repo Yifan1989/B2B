@@ -1,4 +1,4 @@
-# B2B
+# Warehouse System
 
 new table:
 no need to do with migrations.
